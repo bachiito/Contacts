@@ -7,15 +7,18 @@
     class="list-group-item p-0"
     *ngFor="let contact of contacts; let i = index"
   >
-    <div class="card">
+    <div class="card w-25">
       <img
         [src]="contact.imagePath"
         class="card-img-top"
-        [alt]="contact.firstName"
+        [alt]="contact.email"
       />
       <div class="card-body">
         <p class="card-title h5">
           {{ contact.firstName }} {{ contact.lastName }}
+        </p>
+        <p class="card-text" *ngIf="contact.description">
+          {{ contact.phoneNumber }} | {{ contact.email }}
         </p>
         <p class="card-text" *ngIf="contact.description">
           {{ contact.description }}

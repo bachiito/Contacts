@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactListComponent } from './components/contact/contact-list/contact-list.component';
 import { ContactFormComponent } from './components/contact/contact-form/contact-form.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactListComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
