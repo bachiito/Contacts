@@ -1,0 +1,26 @@
+<button type="button" class="btn btn-primary mb-4" (click)="onAddNewContact()">
+  New Contact
+</button>
+
+<ul class="list-group list-group-flush">
+  <li
+    class="list-group-item p-0"
+    *ngFor="let contact of contacts; let i = index"
+  >
+    <div class="card">
+      <img
+        [src]="contact.imagePath"
+        class="card-img-top"
+        [alt]="contact.firstName"
+      />
+      <div class="card-body">
+        <p class="card-title h5">
+          {{ contact.firstName }} {{ contact.lastName }}
+        </p>
+        <p class="card-text" *ngIf="contact.description">
+          {{ contact.description }}
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>
