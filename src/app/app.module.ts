@@ -7,6 +7,7 @@ import { ContactListComponent } from './components/contact/contact-list/contact-
 import { ContactFormComponent } from './components/contact/contact-form/contact-form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     ContactFormComponent,
     HeaderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

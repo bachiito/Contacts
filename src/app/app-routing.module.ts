@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: ContactListComponent },
   { path: 'new', component: ContactFormComponent },
+  { path: 'edit/:id', component: ContactFormComponent },
 ];
 
 @NgModule({

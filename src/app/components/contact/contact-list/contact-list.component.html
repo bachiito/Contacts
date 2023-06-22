@@ -21,7 +21,7 @@
           {{ contact.email }}
         </p>
         <div
-          class="border rounded-3 overflow-hidden"
+          class="border rounded-3 overflow-hidden mb-3"
           *ngIf="contact.phoneNumbers.length"
         >
           <div class="card-header text-center">Phone Numbers</div>
@@ -34,6 +34,13 @@
             </li>
           </ul>
         </div>
+        <button
+          type="button"
+          class="btn btn-secondary text-center w-100"
+          (click)="onEditContact(i)"
+        >
+          Edit
+        </button>
       </div>
     </div>
   </li>

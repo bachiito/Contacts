@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Contact } from 'src/app/types/contact.type';
 import { ContactService } from 'src/app/services/contact.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-list',
@@ -24,5 +24,11 @@ export class ContactListComponent implements OnInit {
 
   onAddNewContact(): void {
     this.router.navigate(['../', 'new'], { relativeTo: this.route });
+  }
+
+  onEditContact(index: number): void {
+    this.router.navigate(['../', 'edit', `${index}`], {
+      relativeTo: this.route,
+    });
   }
 }

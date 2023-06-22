@@ -16,13 +16,19 @@ export class ContactService {
     },
   ];
 
+  getContact(index: number): Contact {
+    return [...this.contacts][index];
+  }
+
   getContacts(): Contact[] {
     return [...this.contacts];
   }
 
   addContact(contact: Contact): void {
     this.contacts.push(contact);
+  }
 
-    console.log(this.contacts);
+  editContact(index: number, contact: Contact): void {
+    this.contacts[index] = contact;
   }
 }

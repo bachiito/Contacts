@@ -1,4 +1,11 @@
-<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+<button type="button" class="btn btn-warning mb-3" (click)="onGoBack()">
+  🔙
+</button>
+
+<form
+  [formGroup]="contactForm"
+  (ngSubmit)="editMode ? onEditContact() : onSubmit()"
+>
   <div class="mb-3">
     <label for="first-name" class="form-label">First Name</label>
     <input
@@ -72,7 +79,7 @@
       class="btn btn-primary"
       [disabled]="contactForm.invalid"
     >
-      Submit
+      {{ editMode ? "Update Contact" : "Add Contact" }}
     </button>
   </div>
 </form>
