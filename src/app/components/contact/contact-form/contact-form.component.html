@@ -1,1 +1,78 @@
-<p>contact-form works!</p>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="first-name" class="form-label">First Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="first-name"
+      required
+      formControlName="firstName"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="last-name" class="form-label">Last Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="last-name"
+      required
+      formControlName="lastName"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      formControlName="email"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="image-path" class="form-label">Image URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="image-path"
+      formControlName="imagePath"
+    />
+  </div>
+  <div
+    class="mb-3 d-flex gap-2"
+    formArrayName="phoneNumbers"
+    *ngFor="let number of contactNumbers.controls; let i = index"
+  >
+    <div class="w-100">
+      <label [for]="i" class="form-label"> Phone Number ({{ i + 1 }}) </label>
+      <input
+        type="text"
+        class="form-control"
+        [id]="i"
+        placeholder="809-560-5589"
+        required
+        [formControlName]="i"
+      />
+    </div>
+    <button
+      type="button"
+      class="btn btn-danger align-self-end"
+      (click)="onRemovePhoneNumber(i)"
+    >
+      X
+    </button>
+  </div>
+
+  <div class="d-flex justify-content-end gap-3">
+    <button type="button" class="btn btn-success" (click)="onAddPhoneNumber()">
+      Add Phone Number
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="contactForm.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>

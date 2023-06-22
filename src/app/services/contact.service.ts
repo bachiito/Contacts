@@ -8,17 +8,21 @@ import { Contact } from '../types/contact.type';
 export class ContactService {
   contacts: Contact[] = [
     {
-      id: 0,
       firstName: 'John',
       lastName: 'Doe',
-      description: 'A nice dude',
       email: 'johndoe@gmail.com',
       imagePath: 'https://reqres.in/img/faces/7-image.jpg',
-      phoneNumber: '809-560-1234',
+      phoneNumbers: ['809-560-1234', '809-560-1234'],
     },
   ];
 
   getContacts(): Contact[] {
     return [...this.contacts];
+  }
+
+  addContact(contact: Contact): void {
+    this.contacts.push(contact);
+
+    console.log(this.contacts);
   }
 }
