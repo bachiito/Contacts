@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 import { Contact } from '../types/contact.type';
 
@@ -6,16 +8,32 @@ import { Contact } from '../types/contact.type';
   providedIn: 'root',
 })
 export class ContactService {
+  private contactsSubject = new Subject<Contact[]>();
   private localStorageKey = 'contacts';
   contacts: Contact[] =
     JSON.parse(localStorage.getItem(this.localStorageKey) as string) || [];
+
+  constructor(private httpClient: HttpClient) {
+    this.loadContacts();
+  }
+
+  loadContacts(): void {
+    if (this.contacts.length) return;
+
+    this.httpClient
+      .get<Contact[]>('/assets/data/contacts.json')
+      .subscribe((contactsData) => {
+        this.contacts = contactsData;
+        this.contactsSubject.next(this.contacts);
+      });
+  }
 
   getContact(index: number): Contact {
     return [...this.contacts][index];
   }
 
-  getContacts(): Contact[] {
-    return [...this.contacts];
+  getContacts(): Subject<Contact[]> {
+    return this.contactsSubject;
   }
 
   addContact(contact: Contact): void {

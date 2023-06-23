@@ -15,7 +15,9 @@ export class ContactListComponent implements OnInit {
   constructor(private contactService: ContactService, private router: Router) {}
 
   ngOnInit(): void {
-    this.contacts = this.contactService.getContacts();
+    this.contactService
+      .getContacts()
+      .subscribe((contactsData) => (this.contacts = contactsData));
   }
 
   onAddNewContact(): void {

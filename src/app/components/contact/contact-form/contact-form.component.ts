@@ -45,7 +45,7 @@ export class ContactFormComponent implements OnInit {
     const idParam = this.route.snapshot.params['id'];
 
     if (idParam) {
-      this.contactId = idParam;
+      this.contactId = parseInt(idParam);
       this.editMode = true;
     }
 

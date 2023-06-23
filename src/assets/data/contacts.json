@@ -1,0 +1,44 @@
+[
+  {
+    "firstName": "Angie",
+    "lastName": "Virginia",
+    "email": "noadmin@hotmail.com",
+    "imagePath": "https://reqres.in/img/faces/2-image.jpg",
+    "phoneNumbers": ["809-560-1457", "809-974-8536"]
+  },
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "johndoe12@gmail.com",
+    "imagePath": "https://reqres.in/img/faces/2-image.jpg",
+    "phoneNumbers": ["809-560-1457", "809-974-8536"]
+  },
+  {
+    "firstName": "John",
+    "lastName": "Rivera",
+    "email": "noadmin@hotmail.com",
+    "imagePath": "https://reqres.in/img/faces/2-image.jpg",
+    "phoneNumbers": ["809-560-1457"]
+  },
+  {
+    "firstName": "Abraham",
+    "lastName": "Rivera",
+    "email": "noadmin@hotmail.com",
+    "imagePath": "https://reqres.in/img/faces/2-image.jpg",
+    "phoneNumbers": ["809-560-1457"]
+  },
+  {
+    "firstName": "Abraham",
+    "lastName": "Rivera",
+    "email": "noadmin@hotmail.com",
+    "imagePath": "https://reqres.in/img/faces/2-image.jpg",
+    "phoneNumbers": ["809-560-1457"]
+  },
+  {
+    "firstName": "Abraham",
+    "lastName": "Rivera",
+    "email": "noadmin@hotmail.com",
+    "imagePath": "https://reqres.in/img/faces/2-image.jpg",
+    "phoneNumbers": ["809-560-1457"]
+  }
+]
