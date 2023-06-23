@@ -2,12 +2,12 @@
   New Contact
 </button>
 
-<ul class="list-group">
+<ul class="list-group" id="contacts-list">
   <li
     class="list-group-item mb-3 p-0 border-0"
     *ngFor="let contact of contacts; let i = index"
   >
-    <div class="card w-25">
+    <div class="card">
       <img
         *ngIf="contact.imagePath"
         [src]="contact.imagePath"

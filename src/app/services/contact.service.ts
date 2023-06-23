@@ -14,6 +14,55 @@ export class ContactService {
       imagePath: 'https://reqres.in/img/faces/7-image.jpg',
       phoneNumbers: ['809-560-1234', '809-560-1234'],
     },
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@gmail.com',
+      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
+      phoneNumbers: ['809-560-1234', '809-560-1234'],
+    },
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@gmail.com',
+      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
+      phoneNumbers: ['809-560-1234', '809-560-1234'],
+    },
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@gmail.com',
+      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
+      phoneNumbers: ['809-560-1234', '809-560-1234'],
+    },
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@gmail.com',
+      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
+      phoneNumbers: ['809-560-1234', '809-560-1234'],
+    },
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@gmail.com',
+      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
+      phoneNumbers: ['809-560-1234', '809-560-1234'],
+    },
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@gmail.com',
+      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
+      phoneNumbers: ['809-560-1234', '809-560-1234'],
+    },
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@gmail.com',
+      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
+      phoneNumbers: ['809-560-1234', '809-560-1234'],
+    },
   ];
 
   getContact(index: number): Contact {
