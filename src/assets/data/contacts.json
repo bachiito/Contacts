@@ -2,22 +2,22 @@
   {
     "firstName": "Angie",
     "lastName": "Virginia",
-    "email": "noadmin@hotmail.com",
+    "email": "angiev@gmail.com",
     "imagePath": "https://reqres.in/img/faces/2-image.jpg",
     "phoneNumbers": ["809-560-1457", "809-974-8536"]
   },
   {
-    "firstName": "Angie",
-    "lastName": "Virginia",
-    "email": "noadmin@hotmail.com",
-    "imagePath": "https://reqres.in/img/faces/2-image.jpg",
-    "phoneNumbers": ["809-560-1457", "809-974-8536"]
+    "firstName": "Lindsay",
+    "lastName": "Ferguson",
+    "email": "lindsay.ferguson@hotmail.com",
+    "imagePath": "https://reqres.in/img/faces/7-image.jpg",
+    "phoneNumbers": ["829-123-4321", "849-876-9090"]
   },
   {
-    "firstName": "Angie",
-    "lastName": "Virginia",
-    "email": "noadmin@hotmail.com",
-    "imagePath": "https://reqres.in/img/faces/2-image.jpg",
-    "phoneNumbers": ["809-560-1457", "809-974-8536"]
+    "firstName": "Michael",
+    "lastName": "Lawson",
+    "email": "michael.lawson@outlook.com",
+    "imagePath": "https://reqres.in/img/faces/8-image.jpg",
+    "phoneNumbers": ["849-128-7634", "809-287-1276"]
   }
 ]

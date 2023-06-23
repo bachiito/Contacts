@@ -31,4 +31,8 @@ export class ContactListComponent implements OnInit {
   onEditContact(index: number): void {
     this.router.navigate([`/edit/${index}`]);
   }
+
+  onSaveContacts(): void {
+    this.contactService.saveContacts();
+  }
 }

@@ -42,4 +42,8 @@ export class ContactService {
   editContact(index: number, contact: Contact): void {
     this.contacts[index] = contact;
   }
+
+  saveContacts(): void {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(this.contacts));
+  }
 }

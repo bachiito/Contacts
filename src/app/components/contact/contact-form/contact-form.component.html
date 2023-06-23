@@ -1,5 +1,9 @@
 <button type="button" class="btn btn-warning mb-3" (click)="onGoBack()">
-  🔙
+  <i
+    class="fa-solid fa-arrow-left-long"
+    role="img"
+    aria-label="go left arrow"
+  ></i>
 </button>
 
 <form
@@ -15,6 +19,7 @@
       required
       formControlName="firstName"
     />
+    <div class="invalid-feedback">Please only your name.</div>
   </div>
   <div class="mb-3">
     <label for="last-name" class="form-label">Last Name</label>
@@ -25,6 +30,7 @@
       required
       formControlName="lastName"
     />
+    <div class="invalid-feedback">Please enter your last name.</div>
   </div>
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
@@ -34,6 +40,7 @@
       id="email"
       formControlName="email"
     />
+    <div class="invalid-feedback">Invalid email.</div>
   </div>
   <div class="mb-3">
     <label for="image-path" class="form-label">Image URL</label>
@@ -43,6 +50,7 @@
       id="image-path"
       formControlName="imagePath"
     />
+    <div class="invalid-feedback">Invalid URL</div>
   </div>
 
   <ng-container
@@ -55,24 +63,32 @@
     >
       <div class="w-100">
         <label [for]="i" class="form-label"> Phone Number ({{ i + 1 }}) </label>
-        <input
-          type="text"
-          class="form-control"
-          [id]="i"
-          placeholder="809-560-5589"
-          required
-          [formControlName]="i"
-        />
+        <div class="d-flex gap-3 form-group">
+          <input
+            type="text"
+            class="form-control"
+            [id]="i"
+            placeholder="809-560-5589"
+            required
+            [formControlName]="i"
+          />
+          <button
+            type="button"
+            class="btn btn-danger align-self-strech"
+            (click)="onRemovePhoneNumber(i)"
+            [disabled]="i === 0"
+            title="Delete Phone Number"
+          >
+            <i
+              class="fa-regular fa-trash-can"
+              style="color: #ffffff"
+              role="img"
+              aria-label="recycle bin"
+            ></i>
+          </button>
+        </div>
+        <div class="invalid-feedback">Invalid phone number.</div>
       </div>
-      <button
-        type="button"
-        class="btn btn-danger align-self-end"
-        (click)="onRemovePhoneNumber(i)"
-        [disabled]="i === 0"
-        title="Delete Phone Number"
-      >
-        X
-      </button>
     </div>
   </ng-container>
 

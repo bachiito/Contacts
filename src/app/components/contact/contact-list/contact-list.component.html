@@ -1,6 +1,11 @@
-<button type="button" class="btn btn-primary mb-4" (click)="onAddNewContact()">
-  New Contact
-</button>
+<div class="d-flex justify-content-end gap-3 mb-4">
+  <button type="button" class="btn btn-primary" (click)="onAddNewContact()">
+    New Contact
+  </button>
+  <button type="button" class="btn btn-success" (click)="onSaveContacts()">
+    Save Changes
+  </button>
+</div>
 
 <ul class="list-group" id="contacts-list">
   <li
