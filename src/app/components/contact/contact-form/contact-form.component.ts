@@ -17,14 +17,19 @@ import { Contact } from 'src/app/types/contact.type';
   styleUrls: ['./contact-form.component.css'],
 })
 export class ContactFormComponent implements OnInit {
-  contactForm!: FormGroup;
-  contactNumbers = new FormArray<FormControl<string | null>>([]);
-  contactId!: number;
-  editMode = false;
-
   private emailRegExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
   private phoneRegExp =
     /^(\+\d{1,3})?[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+
+  editMode = false;
+  contactId!: number;
+  contactForm!: FormGroup;
+  contactNumbers = new FormArray<FormControl<string | null>>([
+    this.formBuilder.control(null, [
+      Validators.required,
+      Validators.pattern(this.phoneRegExp),
+    ]),
+  ]);
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,8 +39,10 @@ export class ContactFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.route.snapshot.params['id']) {
-      this.contactId = this.route.snapshot.params['id'];
+    const idParam = this.route.snapshot.params['id'];
+
+    if (idParam) {
+      this.contactId = idParam;
       this.editMode = true;
     }
 
@@ -49,6 +56,7 @@ export class ContactFormComponent implements OnInit {
     if (this.editMode) {
       editingContact = this.contactService.getContact(this.contactId);
       ({ firstName, lastName, email, imagePath } = editingContact);
+      this.contactNumbers.clear();
     }
 
     if (editingContact?.phoneNumbers?.length) {
@@ -86,8 +94,6 @@ export class ContactFormComponent implements OnInit {
 
   onSubmit(): void {
     this.contactService.addContact(this.contactForm.value);
-    this.contactForm.reset();
-    this.contactNumbers.clear();
     this.onGoBack();
   }
 

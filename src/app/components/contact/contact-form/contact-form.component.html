@@ -44,30 +44,36 @@
       formControlName="imagePath"
     />
   </div>
-  <div
-    class="mb-3 d-flex gap-2"
+
+  <ng-container
+    *ngIf="contactNumbers.controls.length"
     formArrayName="phoneNumbers"
-    *ngFor="let number of contactNumbers.controls; let i = index"
   >
-    <div class="w-100">
-      <label [for]="i" class="form-label"> Phone Number ({{ i + 1 }}) </label>
-      <input
-        type="text"
-        class="form-control"
-        [id]="i"
-        placeholder="809-560-5589"
-        required
-        [formControlName]="i"
-      />
-    </div>
-    <button
-      type="button"
-      class="btn btn-danger align-self-end"
-      (click)="onRemovePhoneNumber(i)"
+    <div
+      class="mb-3 d-flex gap-2"
+      *ngFor="let number of contactNumbers.controls; let i = index"
     >
-      X
-    </button>
-  </div>
+      <div class="w-100">
+        <label [for]="i" class="form-label"> Phone Number ({{ i + 1 }}) </label>
+        <input
+          type="text"
+          class="form-control"
+          [id]="i"
+          placeholder="809-560-5589"
+          required
+          [formControlName]="i"
+        />
+      </div>
+      <button
+        type="button"
+        class="btn btn-danger align-self-end"
+        (click)="onRemovePhoneNumber(i)"
+        [disabled]="i === 0"
+      >
+        X
+      </button>
+    </div>
+  </ng-container>
 
   <div class="d-flex justify-content-end gap-3">
     <button type="button" class="btn btn-success" (click)="onAddPhoneNumber()">

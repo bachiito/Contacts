@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { Contact } from 'src/app/types/contact.type';
 import { ContactService } from 'src/app/services/contact.service';
@@ -12,23 +12,17 @@ import { ContactService } from 'src/app/services/contact.service';
 export class ContactListComponent implements OnInit {
   contacts: Contact[] = [];
 
-  constructor(
-    private contactService: ContactService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private contactService: ContactService, private router: Router) {}
 
   ngOnInit(): void {
     this.contacts = this.contactService.getContacts();
   }
 
   onAddNewContact(): void {
-    this.router.navigate(['../', 'new'], { relativeTo: this.route });
+    this.router.navigate(['/new']);
   }
 
   onEditContact(index: number): void {
-    this.router.navigate(['../', 'edit', `${index}`], {
-      relativeTo: this.route,
-    });
+    this.router.navigate([`/edit/${index}`]);
   }
 }

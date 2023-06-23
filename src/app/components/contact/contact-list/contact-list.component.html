@@ -9,6 +9,7 @@
   >
     <div class="card w-25">
       <img
+        *ngIf="contact.imagePath"
         [src]="contact.imagePath"
         class="card-img-top"
         [alt]="contact.email"
