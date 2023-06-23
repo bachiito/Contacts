@@ -6,64 +6,9 @@ import { Contact } from '../types/contact.type';
   providedIn: 'root',
 })
 export class ContactService {
-  contacts: Contact[] = [
-    {
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'johndoe@gmail.com',
-      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
-      phoneNumbers: ['809-560-1234', '809-560-1234'],
-    },
-    {
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'johndoe@gmail.com',
-      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
-      phoneNumbers: ['809-560-1234', '809-560-1234'],
-    },
-    {
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'johndoe@gmail.com',
-      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
-      phoneNumbers: ['809-560-1234', '809-560-1234'],
-    },
-    {
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'johndoe@gmail.com',
-      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
-      phoneNumbers: ['809-560-1234', '809-560-1234'],
-    },
-    {
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'johndoe@gmail.com',
-      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
-      phoneNumbers: ['809-560-1234', '809-560-1234'],
-    },
-    {
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'johndoe@gmail.com',
-      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
-      phoneNumbers: ['809-560-1234', '809-560-1234'],
-    },
-    {
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'johndoe@gmail.com',
-      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
-      phoneNumbers: ['809-560-1234', '809-560-1234'],
-    },
-    {
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'johndoe@gmail.com',
-      imagePath: 'https://reqres.in/img/faces/7-image.jpg',
-      phoneNumbers: ['809-560-1234', '809-560-1234'],
-    },
-  ];
+  private localStorageKey = 'contacts';
+  contacts: Contact[] =
+    JSON.parse(localStorage.getItem(this.localStorageKey) as string) || [];
 
   getContact(index: number): Contact {
     return [...this.contacts][index];
@@ -75,9 +20,15 @@ export class ContactService {
 
   addContact(contact: Contact): void {
     this.contacts.push(contact);
+    this.updateLocalStorage();
   }
 
   editContact(index: number, contact: Contact): void {
     this.contacts[index] = contact;
+    this.updateLocalStorage();
+  }
+
+  updateLocalStorage(): void {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(this.contacts));
   }
 }
