@@ -17,9 +17,12 @@ import { Contact } from 'src/app/types/contact.type';
   styleUrls: ['./contact-form.component.css'],
 })
 export class ContactFormComponent implements OnInit {
+  private nameRegExp = /^[A-Z][a-z]+$/;
   private emailRegExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
   private phoneRegExp =
     /^(\+\d{1,3})?[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+  private URLRegExp =
+    /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
 
   editMode = false;
   contactId!: number;
@@ -71,10 +74,16 @@ export class ContactFormComponent implements OnInit {
     }
 
     return this.formBuilder.group({
-      firstName: [firstName, Validators.required],
-      lastName: [lastName, Validators.required],
+      firstName: [
+        firstName,
+        [Validators.required, Validators.pattern(this.nameRegExp)],
+      ],
+      lastName: [
+        lastName,
+        [Validators.required, Validators.pattern(this.nameRegExp)],
+      ],
       email: [email, Validators.pattern(this.emailRegExp)],
-      imagePath: [imagePath],
+      imagePath: [imagePath, Validators.pattern(this.URLRegExp)],
       phoneNumbers: this.contactNumbers,
     });
   }
