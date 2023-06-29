@@ -1,4 +1,6 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 import { Contact } from '../types/contact.type';
 
@@ -7,24 +9,28 @@ import { Contact } from '../types/contact.type';
 })
 export class ContactService {
   private localStorageKey = 'contacts';
-  contactsEmitter = new EventEmitter<Contact[]>();
+  contactsSubject = new Subject<Contact[]>();
+
   contacts: Contact[] =
     JSON.parse(localStorage.getItem(this.localStorageKey) as string) || [];
 
-  constructor() {
-    this.init();
+  constructor(private httpClient: HttpClient) {
+    this.initService();
   }
 
-  private init(): void {
+  private initService(): void {
     if (!this.contacts.length) {
       this.loadContacts();
     }
   }
 
-  private async loadContacts(): Promise<void> {
-    const response = await fetch('/assets/data/contacts.json');
-    this.contacts = await response.json();
-    this.contactsEmitter.emit(this.contacts);
+  private loadContacts(): void {
+    this.httpClient
+      .get<Contact[]>('/assets/data/contacts.json')
+      .subscribe((contactsData) => {
+        this.contacts = contactsData;
+        this.contactsSubject.next(this.contacts);
+      });
   }
 
   getContact(index: number): Contact {
